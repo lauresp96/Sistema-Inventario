@@ -1,4 +1,4 @@
-# Sistema de Inventario (En la rama Master) 
+# Sistema de Inventario 
 
  
 Este proyecto es un sistema de inventario básico desarrollado con Spring Boot y Thymeleaf. Su propósito es permitir la gestión de productos, especialmente útil para pequeñas empresas que buscan llevar un control de su inventario. La aplicación incluye funcionalidades CRUD para los productos, control de stock bajo y generación de reportes en PDF.
