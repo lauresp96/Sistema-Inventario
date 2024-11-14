@@ -3,25 +3,21 @@ body {
     margin: 20px;
 }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
+header {
+    display: flex;  /* Usamos flexbox para alinear los elementos horizontalmente */
+    align-items: center;  /* Centra verticalmente los elementos */
+    padding: 20px;
 }
 
-table, th, td {
-    border: 1px solid #ddd;
-    padding: 8px;
+header img {
+    width: 60px;  /* Reducción del tamaño de la imagen a 60px de ancho */
+    height: 60px;  /* Forzar la altura a 60px para mantener la proporción y evitar imágenes desmesuradas */
+    object-fit: contain;  /* Mantiene la proporción de la imagen */
+    margin-right: 15px;  /* Espacio entre la imagen y el texto */
 }
 
-th {
-    background-color: #f2f2f2;
-}
-
-a {
-    text-decoration: none;
-    color: #007bff;
-}
-
-a:hover {
-    color: #0056b3;
+header h1 {
+    font-size: 1.8em;  /* Tamaño del título */
+    color: #333;       /* Color del texto */
+    margin: 0;         /* Elimina márgenes innecesarios */
 }

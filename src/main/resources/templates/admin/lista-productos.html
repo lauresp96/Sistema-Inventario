@@ -1,41 +1,43 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="es" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{admin/base}">
 <head>
-    <title>Lista de Productos</title>
-    <link rel="stylesheet" href="/css/styles.css">
+    <title>Sistema de Inventario - Lista de Productos</title>
 </head>
 <body>
-<h1>Lista de Productos</h1>
-<a href="/admin/productos/nuevo">Agregar Nuevo Producto</a>
-<!-- Aquí se mostrará el botón para generar el reporte PDF -->
-<div class="mt-4">
-    <a href="/api/productos/reportePDF" class="btn btn-primary" target="_blank">Generar Reporte PDF</a>
-</div>
-<table>
-    <thead>
-    <tr>
-        <th>ID</th>
-        <th>Nombre</th>
-        <th>Descripción</th>
-        <th>Precio</th>
-        <th>Stock</th>
-        <th>Acciones</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="producto : ${productos}">
-        <td th:text="${producto.id}"></td>
-        <td th:text="${producto.nombre}"></td>
-        <td th:text="${producto.descripcion}"></td>
-        <td th:text="${producto.precio}"></td>
-        <td th:text="${producto.stock}"></td>
-        <td>
-            <a th:href="@{/admin/productos/editar/{id}(id=${producto.id})}">Editar</a>
-            <a th:href="@{/admin/productos/eliminar/{id}(id=${producto.id})}"
-               onclick="return confirm('¿Estás seguro de eliminar este producto?');">Eliminar</a>
-        </td>
-    </tr>
-    </tbody>
-</table>
+<section layout:fragment="content">
+    <h2 class="mt-4">Lista de Productos</h2>
+    <a href="/admin/productos/nuevo" class="btn btn-success mb-3">Agregar Nuevo Producto</a>
+    <a href="/api/productos/reportePDF" class="btn btn-primary mb-3" target="_blank">Generar Reporte PDF</a>
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th>Precio</th>
+            <th>Stock</th>
+            <th>Acciones</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="producto : ${productos}">
+            <td th:text="${producto.id}"></td>
+            <td th:text="${producto.nombre}"></td>
+            <td th:text="${producto.descripcion}"></td>
+            <td th:text="${producto.precio}"></td>
+            <td th:text="${producto.stock}"></td>
+            <td>
+                <a th:href="@{/admin/productos/editar/{id}(id=${producto.id})}"
+                   class="btn btn-warning btn-sm">Editar</a>
+                <a th:href="@{/admin/productos/eliminar/{id}(id=${producto.id})}"
+                   class="btn btn-danger btn-sm"
+                   onclick="return confirm('¿Estás seguro de eliminar este producto?');">Eliminar</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</section>
 </body>
 </html>
